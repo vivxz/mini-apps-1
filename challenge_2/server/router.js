@@ -2,7 +2,8 @@ const router = require('express').Router();
 const controller = require('./controller.js');
 
 router
- .route('/index')
- .get(controller.get);
+    .route('/')
+    .get(controller.get)
+    .post(controller.post)
 
 module.exports = router;
