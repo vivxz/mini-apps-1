@@ -4,21 +4,32 @@ import axios from 'axios';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      board: [
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+      ]
+    }
   }
 
   render() {
+    const { board } = this.state;
     return (
       <div>
-        <div class="row" data-x="0" data-y="0" /> 
-        <div class="row" data-x="1" data-y="0" />
-        <div class="row" data-x="2" data-y="0" />
-        <div class="row" data-x="3" data-y="0" />
-        <div class="row" data-x="4" data-y="0" />
-        <div class="row" data-x="5" data-y="0" />
-        <div class="row" data-x="6" data-y="0" />
+        {board.map((row, i) => (
+          <div class="col" key={i}>
+            {row.map((col, j) => (
+              <span class="row" key={j}>{col}</span>
+            ))}
+          </div>
+        ))}
       </div>
-    )
+    );
   }
 }
 
